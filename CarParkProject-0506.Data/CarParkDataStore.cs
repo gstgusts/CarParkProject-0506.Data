@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarParkProject_0506.Data.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,21 @@ namespace CarParkProject_0506.Data
 {
     public class CarParkDataStore
     {
-        public void Save(List<Vehicle> vehicles)
+        public void Save(List<Vehicle> vehicles, string fileName)
         {
             var serializer = new XmlSerializer(typeof(List<Vehicle>));
 
-            using (var writer = new StreamWriter("vehicles.xml"))
+            using (var writer = new StreamWriter(fileName))
+            {
+                serializer.Serialize(writer, vehicles);
+            }
+        }
+
+        public void Save(List<ExportDto1> vehicles, string fileName)
+        {
+            var serializer = new XmlSerializer(typeof(List<ExportDto1>));
+
+            using (var writer = new StreamWriter(fileName))
             {
                 serializer.Serialize(writer, vehicles);
             }

@@ -5,7 +5,7 @@
     {
         public int Power { get; set; }
 
-        public int Volume { get; set; }
+        public float Volume { get; set; }
 
         public EngineTypeEnum Type { get; set; }
 
