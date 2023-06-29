@@ -7,5 +7,10 @@
         public string? Manufacturer { get; set; }
 
         public TransmissionTypeEnum Type { get; set; }
+
+        public override string ToString()
+        {
+            return $"NumberOfGears:{NumberOfGears}\nManufacturer:{Manufacturer}\nType:{Type}";
+        }
     }
 }

@@ -7,5 +7,10 @@
         public string? Number { get; set; }
 
         public float PermissibleLoad { get; set; }
+
+        public override string ToString()
+        {
+            return $"NumberOfWheels:{NumberOfWheels}\nNumber:{Number}\nPermissibleLoad:{PermissibleLoad}";
+        }
     }
 }

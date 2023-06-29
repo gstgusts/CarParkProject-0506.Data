@@ -2,5 +2,9 @@
 {
     public class Scooter : Vehicle
     {
+        public override string GetDetails()
+        {
+            return base.GetDetails();
+        }
     }
 }
