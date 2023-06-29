@@ -1,5 +1,12 @@
-﻿namespace CarParkProject_0506.Data
+﻿using System.Xml.Serialization;
+
+namespace CarParkProject_0506.Data
 {
+    [Serializable]
+    [XmlInclude(typeof(Bus))]
+    [XmlInclude(typeof(PassengerCar))]
+    [XmlInclude(typeof(Scooter))]
+    [XmlInclude(typeof(Truck))]
     public class Vehicle
     {
         public Engine Engine { get; set; }

@@ -56,7 +56,20 @@ namespace CarParkProject_0506.ConsoleApp
 
             var vehicles = new List<Vehicle> { bus, car };
 
-            foreach ( var vehicle in vehicles )
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle.GetDetails());
+            }
+
+            Console.WriteLine("\n\n\n\n");
+
+            var dataStore = new CarParkDataStore();
+
+            //dataStore.Save(vehicles);
+
+            var result = dataStore.Load();
+
+            foreach (var vehicle in result)
             {
                 Console.WriteLine(vehicle.GetDetails());
             }

@@ -1,5 +1,6 @@
 ﻿namespace CarParkProject_0506.Data
 {
+    [Serializable]
     public class Transmission
     {
         public short NumberOfGears { get; set; }
