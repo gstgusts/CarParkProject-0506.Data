@@ -13,7 +13,7 @@ namespace CarParkProject_0506.Data.Dto
         {
             
         }
-        public ExportDto1(EngineTypeEnum typeEnum, int power, string serialNumber)
+        public ExportDto1(EngineTypeEnum typeEnum, int power, string? serialNumber)
         {
             Type = typeEnum;
             Power = power;

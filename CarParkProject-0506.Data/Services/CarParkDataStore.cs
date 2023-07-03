@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace CarParkProject_0506.Data
+namespace CarParkProject_0506.Data.Services
 {
-    public class CarParkDataStore
+    public class CarParkDataStore : ICarParkRepository
     {
         public void Save(List<Vehicle> vehicles, string fileName)
         {
@@ -36,8 +36,8 @@ namespace CarParkProject_0506.Data
 
             using (var reader = new StreamReader("all.xml"))
             {
-               var result = serializer.Deserialize(reader);
-               return result != null ? (List<Vehicle>)result : new List<Vehicle>();
+                var result = serializer.Deserialize(reader);
+                return result != null ? (List<Vehicle>)result : new List<Vehicle>();
             }
         }
     }
