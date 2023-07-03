@@ -34,7 +34,7 @@ namespace CarParkProject_0506.Data
         {
             var serializer = new XmlSerializer(typeof(List<Vehicle>));
 
-            using (var reader = new StreamReader("vehicles.xml"))
+            using (var reader = new StreamReader("all.xml"))
             {
                var result = serializer.Deserialize(reader);
                return result != null ? (List<Vehicle>)result : new List<Vehicle>();

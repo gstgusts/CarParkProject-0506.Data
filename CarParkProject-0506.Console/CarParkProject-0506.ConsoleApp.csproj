@@ -12,4 +12,10 @@
     <ProjectReference Include="..\CarParkProject-0506.Data\CarParkProject-0506.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="all.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
