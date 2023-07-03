@@ -56,14 +56,9 @@ namespace CarParkProject_0506.Data.Services
             _carParkRepository.Save(_vehicles, AllVehiclesFilePath);
         }
 
-        public void Save(IEnumerable<ExportDto1> data, string path)
+        public void Save<T>(List<T> data, string path) where T : ISaveItem
         {
             _carParkRepository.Save(data.ToList(), path);
-        }
-
-        public void Save(List<ExportDto2> data, string path)
-        {
-            _carParkRepository.Save(data, path);
         }
     }
 }

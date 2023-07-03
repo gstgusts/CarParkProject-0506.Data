@@ -6,10 +6,9 @@ namespace CarParkProject_0506.Data.Services
     {
         List<Vehicle> Load();
 
-        void Save(List<Vehicle> vehicles, string fileName);
+        void Save<T>(List<T> vehicles, string fileName) where T : ISaveItem;
 
-        void Save(List<ExportDto1> vehicles, string fileName);
+        //List<T> Load<T>(); 
 
-        void Save(List<ExportDto2> vehicles, string fileName);
     }
 }

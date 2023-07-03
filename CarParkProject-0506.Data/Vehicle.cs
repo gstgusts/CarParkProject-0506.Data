@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using CarParkProject_0506.Data.Services;
+using System.Xml.Serialization;
 
 namespace CarParkProject_0506.Data
 {
@@ -7,7 +8,7 @@ namespace CarParkProject_0506.Data
     [XmlInclude(typeof(PassengerCar))]
     [XmlInclude(typeof(Scooter))]
     [XmlInclude(typeof(Truck))]
-    public class Vehicle
+    public class Vehicle : ISaveItem
     {
         public Engine Engine { get; set; }
         public Transmission Transmission { get; set; }

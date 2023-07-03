@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarParkProject_0506.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarParkProject_0506.Data.Dto
 {
-    public class ExportDto1
+    public class ExportDto1 : ISaveItem
     {
         public ExportDto1()
         {

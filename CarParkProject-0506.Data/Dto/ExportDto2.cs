@@ -1,6 +1,8 @@
-﻿namespace CarParkProject_0506.Data.Dto
+﻿using CarParkProject_0506.Data.Services;
+
+namespace CarParkProject_0506.Data.Dto
 {
-    public class ExportDto2
+    public class ExportDto2 : ISaveItem
     {
         public TransmissionTypeEnum Key { get; set; }
 

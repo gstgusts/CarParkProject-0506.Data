@@ -10,19 +10,9 @@ namespace CarParkProject_0506.Data.Services
 {
     public class CarParkDataStore : ICarParkRepository
     {
-        public void Save(List<Vehicle> vehicles, string fileName)
+        public void Save<T>(List<T> vehicles, string fileName) where T : ISaveItem
         {
-            var serializer = new XmlSerializer(typeof(List<Vehicle>));
-
-            using (var writer = new StreamWriter(fileName))
-            {
-                serializer.Serialize(writer, vehicles);
-            }
-        }
-
-        public void Save(List<ExportDto1> vehicles, string fileName)
-        {
-            var serializer = new XmlSerializer(typeof(List<ExportDto1>));
+            var serializer = new XmlSerializer(typeof(List<T>));
 
             using (var writer = new StreamWriter(fileName))
             {
@@ -38,16 +28,6 @@ namespace CarParkProject_0506.Data.Services
             {
                 var result = serializer.Deserialize(reader);
                 return result != null ? (List<Vehicle>)result : new List<Vehicle>();
-            }
-        }
-
-        public void Save(List<ExportDto2> vehicles, string fileName)
-        {
-            var serializer = new XmlSerializer(typeof(List<ExportDto2>));
-
-            using (var writer = new StreamWriter(fileName))
-            {
-                serializer.Serialize(writer, vehicles);
             }
         }
     }

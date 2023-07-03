@@ -13,9 +13,9 @@ namespace CarParkProject_0506.ConsoleApp
 
             var vehicles = carService.GetAllVehicles();
 
-            //var result = carService.GetBusAndTrucks();
+            var result = carService.GetBusAndTrucks();
 
-            //carService.Save(result, "test.xml");
+            carService.Save(result.ToList(), "test2.xml");
 
             var result2 = carService.GetVehiclesGroupByTransmission();
 
@@ -25,7 +25,11 @@ namespace CarParkProject_0506.ConsoleApp
                 Items = a.ToList()
             });
 
-            carService.Save(vehicles2.ToList(), "groupedby.xml");
+            carService.Save(vehicles2.ToList(), "groupedby2.xml");
+
+            var result3 = vehicles.Select(a => new ExportDto3() { Brand = a.Transmission.Manufacturer });
+
+            carService.Save(result3.ToList(), "adfasdf.xml");
         }
     }
 }
