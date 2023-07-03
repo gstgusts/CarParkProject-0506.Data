@@ -9,25 +9,23 @@ namespace CarParkProject_0506.ConsoleApp
     {
         static void Main(string[] args)
         {
-           
             var carService = new CarParkService(new CarParkDataStore());
 
             var vehicles = carService.GetAllVehicles();
 
-            var groupedByVehicles = vehicles.GroupBy(a => a.Transmission.Type);
+            //var result = carService.GetBusAndTrucks();
 
-            foreach (var group in groupedByVehicles)
+            //carService.Save(result, "test.xml");
+
+            var result2 = carService.GetVehiclesGroupByTransmission();
+
+            var vehicles2 = result2.Select(a => new ExportDto2()
             {
-                Console.WriteLine(group.Key);
+                Key = a.Key,
+                Items = a.ToList()
+            });
 
-                foreach (var vehicle in group)
-                {
-                    Console.WriteLine(vehicle.GetDetails());
-
-                    Debug.WriteLine(group.Key);
-                }
-            }
-
+            carService.Save(vehicles2.ToList(), "groupedby.xml");
         }
     }
 }

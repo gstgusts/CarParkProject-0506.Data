@@ -9,6 +9,8 @@ namespace CarParkProject_0506.Data.Services
 {
     public class CarParkService
     {
+        private const string AllVehiclesFilePath = "all.xml";
+
         private readonly ICarParkRepository _carParkRepository;
 
         private List<Vehicle> _vehicles = new List<Vehicle>();
@@ -47,6 +49,21 @@ namespace CarParkProject_0506.Data.Services
         public IEnumerable<IGrouping<TransmissionTypeEnum, Vehicle>> GetVehiclesGroupByTransmission()
         {
             return Vehicles.GroupBy(a => a.Transmission.Type);
+        }
+
+        public void Save()
+        {
+            _carParkRepository.Save(_vehicles, AllVehiclesFilePath);
+        }
+
+        public void Save(IEnumerable<ExportDto1> data, string path)
+        {
+            _carParkRepository.Save(data.ToList(), path);
+        }
+
+        public void Save(List<ExportDto2> data, string path)
+        {
+            _carParkRepository.Save(data, path);
         }
     }
 }

@@ -40,5 +40,15 @@ namespace CarParkProject_0506.Data.Services
                 return result != null ? (List<Vehicle>)result : new List<Vehicle>();
             }
         }
+
+        public void Save(List<ExportDto2> vehicles, string fileName)
+        {
+            var serializer = new XmlSerializer(typeof(List<ExportDto2>));
+
+            using (var writer = new StreamWriter(fileName))
+            {
+                serializer.Serialize(writer, vehicles);
+            }
+        }
     }
 }
