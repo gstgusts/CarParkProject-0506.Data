@@ -1,5 +1,6 @@
 ﻿using CarParkProject_0506.Data;
 using CarParkProject_0506.Data.Dto;
+using System.Diagnostics;
 
 namespace CarParkProject_0506.ConsoleApp
 {
@@ -55,25 +56,49 @@ namespace CarParkProject_0506.ConsoleApp
                 }
             };
 
-            var vehicles = new List<Vehicle> { bus, car };
+            var car2 = new PassengerCar
+            {
+                BuildType = BuildTypeEnum.Sedan,
+                Chassis = new Chassis
+                {
+                    NumberOfWheels = 4,
+                    PermissibleLoad = 200,
+                    Number = "2345sdfgsdgf"
+                },
+                Engine = new Engine
+                {
+                    Volume = 250,
+                    Power = 200,
+                    SerialNumber = "568745876",
+                    Type = EngineTypeEnum.Eletric
+                },
+                Transmission = new Transmission
+                {
+                    Manufacturer = "Bmw",
+                    NumberOfGears = 7,
+                    Type = TransmissionTypeEnum.Manual
+                }
+            };
+
+            var vehicles = new List<Vehicle> { bus, car, car2 };
 
 
-            var filteredList = vehicles.Where(v => v.Engine.Volume > 1.5);
+            //var filteredList = vehicles.Where(v => v.Engine.Volume > 1.5);
 
             var dataStore = new CarParkDataStore();
 
             //dataStore.Save(filteredList.ToList(), @"vehicles_with_engine_more_than_15.xml");
 
 
-            var onlyBusAndTruck = vehicles.Where(v => v is Bus || v is Truck)
-                .Select(v => new ExportDto1 { 
-                    Power = v.Engine.Power,
-                    Type = v.Engine.Type,
-                    SerialNumber = v.Engine.SerialNumber,
-                });
+            //var onlyBusAndTruck = vehicles.Where(v => v is Bus || v is Truck)
+            //    .Select(v => new ExportDto1 { 
+            //        Power = v.Engine.Power,
+            //        Type = v.Engine.Type,
+            //        SerialNumber = v.Engine.SerialNumber,
+            //    });
 
-             var onlyBusAndTruck2 = vehicles.Where(v => v is Bus || v is Truck)
-                .Select(v => new ExportDto1(v.Engine.Type, v.Engine.Power, v.Engine.SerialNumber));
+             //var onlyBusAndTruck2 = vehicles.Where(v => v is Bus || v is Truck)
+             //   .Select(v => new ExportDto1(v.Engine.Type, v.Engine.Power, v.Engine.SerialNumber));
 
             //var onlyBusAndTruck2 = vehicles.Where(v => v is Bus || v is Truck)
             //    .Select(v => new                 {
@@ -83,7 +108,7 @@ namespace CarParkProject_0506.ConsoleApp
             //    });
 
 
-            dataStore.Save(onlyBusAndTruck.ToList(), @"car_and_truck_data.xml");
+            //dataStore.Save(onlyBusAndTruck.ToList(), @"car_and_truck_data.xml");
 
             //foreach (var vehicle in vehicles)
             //{
@@ -102,6 +127,20 @@ namespace CarParkProject_0506.ConsoleApp
             //{
             //    Console.WriteLine(vehicle.GetDetails());
             //}
+
+            var groupedByVehicles = vehicles.GroupBy(a => a.Transmission.Type);
+
+            foreach (var group in groupedByVehicles)
+            {
+                Console.WriteLine(group.Key);
+
+                foreach (var vehicle in group)
+                {
+                    Console.WriteLine(vehicle.GetDetails());
+
+                    Debug.WriteLine(group.Key);
+                }
+            }
 
         }
     }

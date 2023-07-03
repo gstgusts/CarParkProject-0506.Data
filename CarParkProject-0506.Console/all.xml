@@ -1,0 +1,41 @@
+﻿<<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfVehicle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Vehicle xsi:type="Bus">
+		<Engine>
+			<Power>200</Power>
+			<Volume>250</Volume>
+			<Type>Diesel</Type>
+			<SerialNumber>23464356gsdfg</SerialNumber>
+		</Engine>
+		<Transmission>
+			<NumberOfGears>7</NumberOfGears>
+			<Manufacturer>Toyota</Manufacturer>
+			<Type>Manual</Type>
+		</Transmission>
+		<Chassis>
+			<NumberOfWheels>4</NumberOfWheels>
+			<Number>a13213542345</Number>
+			<PermissibleLoad>45</PermissibleLoad>
+		</Chassis>
+		<Levels>1</Levels>
+	</Vehicle>
+	<Vehicle xsi:type="PassengerCar">
+		<Engine>
+			<Power>200</Power>
+			<Volume>250</Volume>
+			<Type>Eletric</Type>
+			<SerialNumber>568745876</SerialNumber>
+		</Engine>
+		<Transmission>
+			<NumberOfGears>7</NumberOfGears>
+			<Manufacturer>Bmw</Manufacturer>
+			<Type>Auto</Type>
+		</Transmission>
+		<Chassis>
+			<NumberOfWheels>4</NumberOfWheels>
+			<Number>2345sdfgsdgf</Number>
+			<PermissibleLoad>200</PermissibleLoad>
+		</Chassis>
+		<BuildType>Sedan</BuildType>
+	</Vehicle>
+</ArrayOfVehicle>
