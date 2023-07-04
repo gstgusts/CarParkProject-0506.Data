@@ -38,4 +38,22 @@
 		</Chassis>
 		<BuildType>Sedan</BuildType>
 	</Vehicle>
+	<Vehicle xsi:type="Scooter">
+		<Engine>
+			<Power>12</Power>
+			<Volume>50</Volume>
+			<Type>Unlead</Type>
+			<SerialNumber>34563456</SerialNumber>
+		</Engine>
+		<Transmission>
+			<NumberOfGears>4</NumberOfGears>
+			<Manufacturer>Audi</Manufacturer>
+			<Type>Manual</Type>
+		</Transmission>
+		<Chassis>
+			<NumberOfWheels>2</NumberOfWheels>
+			<Number>124534564576</Number>
+			<PermissibleLoad>150</PermissibleLoad>
+		</Chassis>
+	</Vehicle>
 </ArrayOfVehicle>

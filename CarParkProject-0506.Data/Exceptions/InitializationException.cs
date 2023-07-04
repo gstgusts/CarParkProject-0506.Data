@@ -8,5 +8,13 @@ namespace CarParkProject_0506.Data.Exceptions
 {
     public class InitializationException : Exception
     {
+        public InitializationException() : base("Unable to initialize object")
+        {
+            
+        }
+
+        public InitializationException(string message) : base(message) {
+            
+        }
     }
 }

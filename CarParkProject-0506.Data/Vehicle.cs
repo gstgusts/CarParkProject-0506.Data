@@ -11,13 +11,19 @@ namespace CarParkProject_0506.Data
     [XmlInclude(typeof(Truck))]
     public class Vehicle : ISaveItem
     {
-        //public Vehicle(Engine engine)
-        //{
-        //    if(engine == null)
-        //    {
-        //        throw new InitializationException();
-        //    }
-        //}
+        public Vehicle() { }
+
+        public Vehicle(Engine engine, Transmission transmission, Chassis chassis)
+        {
+            if (engine == null || transmission == null || chassis == null)
+            {
+                throw new InitializationException();
+            }
+
+            Engine = engine;
+            Transmission = transmission;
+            Chassis = chassis;
+        }
 
         public Engine Engine { get; set; }
         public Transmission Transmission { get; set; }
@@ -26,6 +32,11 @@ namespace CarParkProject_0506.Data
         public virtual string  GetDetails()
         {
             return $"{Engine} {Transmission} {Chassis}";
+        }
+
+        public virtual bool IsValid()
+        {
+            return true;
         }
     }
 }

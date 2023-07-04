@@ -1,13 +1,36 @@
-﻿namespace CarParkProject_0506.Data
+﻿using CarParkProject_0506.Data.Exceptions;
+
+namespace CarParkProject_0506.Data
 {
     [Serializable]
     public class Bus : Vehicle
     {
+        public Bus()
+        {
+            
+        }
+
+        public Bus(short levels, Engine engine, Transmission transmission, Chassis chassis)
+            : base(engine, transmission, chassis)
+        {
+            if(levels <= 0)
+            {
+                throw new InitializationException("You should indicate value for levels");
+            }
+
+            Levels = levels;
+        }
+
         public short Levels { get; set; }
 
         public override string GetDetails()
         {
             return $"Levels: {Levels}\n" + base.GetDetails();
+        }
+
+        public override bool IsValid()
+        {
+            return Levels > 0 && Levels <= 2 && base.IsValid();
         }
     }
 }
