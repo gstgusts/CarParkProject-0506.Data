@@ -32,5 +32,20 @@ namespace CarParkProject_0506.Data
         {
             return Volume > 0 && Volume <= 1000 && base.IsValid();
         }
+
+        public override bool HasProperty(string name)
+        {
+            return name == nameof(Volume) || base.HasProperty(name);
+        }
+
+        public override bool IsMatch(string propertyName, string query)
+        {
+            if (nameof(Volume) == propertyName)
+            {
+                return Volume.ToString() == query;
+            }
+
+            return base.IsMatch(propertyName, query);
+        }
     }
 }

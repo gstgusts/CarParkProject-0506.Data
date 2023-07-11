@@ -11,11 +11,19 @@ namespace CarParkProject_0506.ConsoleApp
         {
             var carService = new CarParkService(new CarParkDataStore());
 
-            var results = carService.GetAutoByParameter<Bus>("Levels", "1");
+            //var results = carService.GetAutoByParameter<Bus>("Levels", "1");
+
+            //foreach (var result in results)
+            //{
+            //    Console.WriteLine(result.GetDetails());
+            //}
+
+            var results = carService.GetAutoByParameter2("Volume", "250");
 
             foreach (var result in results)
             {
                 Console.WriteLine(result.GetDetails());
+                Console.WriteLine("------------");
             }
         }
     }

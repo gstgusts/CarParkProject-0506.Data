@@ -172,6 +172,18 @@ namespace CarParkProject_0506.Data.Services
             return results;
         }
 
+        public IEnumerable<Vehicle> GetAutoByParameter2(string propertyName, string paramValue)
+        {
+            var hasProperty = _vehicles.Any(v => v.HasProperty(propertyName));
+
+            if (!hasProperty)
+            {
+                throw new GetAutoByParameterException(propertyName);
+            }
+
+            return _vehicles.Where(v => v.IsMatch(propertyName, paramValue));
+        }
+
         private static void AddProperty(PropertyInfo? propertyInfo, List<PropertyInfo> propertiesByName)
         {
             if (propertyInfo != null)

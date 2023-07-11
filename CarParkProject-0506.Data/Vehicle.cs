@@ -1,5 +1,6 @@
 ﻿using CarParkProject_0506.Data.Exceptions;
 using CarParkProject_0506.Data.Services;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace CarParkProject_0506.Data
@@ -37,6 +38,20 @@ namespace CarParkProject_0506.Data
         public virtual bool IsValid()
         {
             return true;
+        }
+
+        public virtual bool HasProperty(string name)
+        {
+            return Engine.HasProperty(name) 
+                || Chassis.HasProperty(name)
+                || Transmission.HasProperty(name);
+        }
+
+        public virtual bool IsMatch(string propertyName, string query)
+        {
+            return Engine.IsMatch(propertyName, query)
+                || Chassis.IsMatch(propertyName, query)
+                || Transmission.IsMatch(propertyName, query);
         }
     }
 }
